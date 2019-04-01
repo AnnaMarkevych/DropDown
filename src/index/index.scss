@@ -1,1 +1,52 @@
 @import '../common/styles/_libs';
+$padding: 1rem;
+* {
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.dropdown {
+  position: relative;
+  display: block;
+  width: 300px;
+  text-align: right;
+  &-title {
+    font-weight: bold;
+    padding: $padding;
+    font-size: 1.2rem;
+    border: 1px solid saddlebrown;
+    background: bisque;
+    cursor: pointer;
+  }
+  .list-options {
+    transform: scaleY(0);
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    visibility: hidden;
+    transition: transform 0.5s;
+    transform-origin: top;
+  }
+  &.opened {
+    .list-options {
+      transform: scaleY(1);
+      background: bisque;
+      visibility: visible;
+    }
+  }
+  .option {
+    padding: $padding;
+    border-bottom: 0.5px solid saddlebrown;
+    border-right: 0.5px solid saddlebrown;
+    border-left: 0.5px solid saddlebrown;
+    &:hover {
+      font-weight: bold;
+      background: blanchedalmond;
+      cursor: pointer;
+    }
+  }
+}
